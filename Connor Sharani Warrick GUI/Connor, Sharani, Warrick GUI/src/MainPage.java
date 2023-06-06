@@ -17,6 +17,8 @@ public class MainPage extends JPanel{
     private JComboBox<String> radiusDropdown;
     private JTextField addressField;
 
+    private JLabel gasLabel;
+
     JLabel mainMenuPictureLabel = new JLabel(new ImageIcon("src/Images/MainScreen.png"));
 
     private String[] stationOptions = {"Regular", "Midgrade", "Premium", "Diesel", "Tesla Supercharge"};
@@ -24,10 +26,13 @@ public class MainPage extends JPanel{
 
     private BackendController backend;
 
-    MainPage(Frame frame, BackendController backend){
+    MainPage(Frame frame, BackendController backend)throws IOException{
         super(null);
         this.frame = frame;
         this.backend = backend;
+
+        gasLabel = new JLabel("Choose your gas type");
+        gasLabel.setBounds(100, 50, 50, 50);
 
         createInputs();
         this.add(createFindGasButton());
