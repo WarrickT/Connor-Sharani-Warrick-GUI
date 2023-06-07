@@ -23,7 +23,7 @@ public class Frame extends JFrame {
             ioe.printStackTrace(System.err);
         }
 
-        setContentPane(secondPage);
+        setContentPane(mainPage);
         revalidate();
         repaint();
     }
