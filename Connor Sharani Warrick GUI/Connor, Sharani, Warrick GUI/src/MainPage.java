@@ -32,7 +32,7 @@ public class MainPage extends JPanel{
         this.backend = backend;
 
         gasLabel = new JLabel("Choose your gas type");
-        gasLabel.setBounds(100, 50, 50, 50);
+        gasLabel.setBounds(100, 300, 200, 50);
 
         createInputs();
         this.add(createFindGasButton());
@@ -61,6 +61,7 @@ public class MainPage extends JPanel{
         this.add(stationDropdown);
         this.add(addressField);
         this.add(radiusDropdown);
+        this.add(gasLabel);
     }
 
     private JButton createFindGasButton() {
