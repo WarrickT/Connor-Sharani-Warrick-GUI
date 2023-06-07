@@ -56,7 +56,7 @@ public class SecondPage extends JPanel{
         //Delete this later. 
         showResults();
     }
-    
+
     void showResults(){
         tablePanel = new JPanel(null);
 
