@@ -18,6 +18,9 @@ public class MainPage extends JPanel{
     private JTextField addressField;
 
     private JLabel gasLabel;
+    private JLabel locationLabel;
+    private JLabel budgetLabel;
+    private JLabel maintitleLabel;
 
     JLabel mainMenuPictureLabel = new JLabel(new ImageIcon("src/Images/MainScreen.png"));
 
@@ -31,8 +34,15 @@ public class MainPage extends JPanel{
         this.frame = frame;
         this.backend = backend;
 
+        //Titles/Subtitles on the main page 
+        maintitleLabel = new JLabel("Local Gas Price Checker");
+        maintitleLabel.setBounds(400,20,200,100);
         gasLabel = new JLabel("Choose your gas type");
         gasLabel.setBounds(100, 300, 200, 50);
+        locationLabel = new JLabel("Please enter your address:");
+        locationLabel.setBounds(100,365,200,50); 
+        budgetLabel = new JLabel("Select your budget:");
+        budgetLabel.setBounds(100,450,300,100);
 
         createInputs();
         this.add(createFindGasButton());
@@ -61,7 +71,10 @@ public class MainPage extends JPanel{
         this.add(stationDropdown);
         this.add(addressField);
         this.add(radiusDropdown);
+        this.add(maintitleLabel);
         this.add(gasLabel);
+        this.add(locationLabel);
+        this.add(budgetLabel);
     }
 
     private JButton createFindGasButton() {
