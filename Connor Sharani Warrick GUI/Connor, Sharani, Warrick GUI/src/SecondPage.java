@@ -53,7 +53,7 @@ public class SecondPage extends JPanel{
         this.add(titleLabel);
         this.add(backButton);
         this.add(csvButton);
-        //Delete this later. 
+        //Delete this later.
         showResults();
     }
 
