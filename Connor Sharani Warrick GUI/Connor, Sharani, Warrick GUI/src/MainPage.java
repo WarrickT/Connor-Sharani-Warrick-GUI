@@ -18,9 +18,12 @@ public class MainPage extends JPanel{
     private JTextField addressField;
 
     private JLabel gasLabel;
+    private JLabel locationLabel;
+    private JLabel budgetLabel;
+    private JLabel maintitleLabel;
 
     JLabel mainMenuPictureLabel = new JLabel(new ImageIcon("src/Images/MainScreen.png"));
-
+    //Assigning options for the dropdown menus for gas type and budget
     private String[] stationOptions = {"Regular", "Midgrade", "Premium", "Diesel", "Tesla Supercharge"};
     private String[] radiusOptions = {"2.5", "5", "7.5", "10", "12.5", "15"};
 
@@ -31,8 +34,15 @@ public class MainPage extends JPanel{
         this.frame = frame;
         this.backend = backend;
 
+        //Creating Labels (Tiles and subtiles) on the main page and assinging coordinates  
+        maintitleLabel = new JLabel("Local Gas Price Checker");
+        maintitleLabel.setBounds(400,20,200,100);
         gasLabel = new JLabel("Choose your gas type");
-        gasLabel.setBounds(100, 50, 50, 50);
+        gasLabel.setBounds(100, 300, 200, 50);
+        locationLabel = new JLabel("Please enter your address:");
+        locationLabel.setBounds(100,365,200,50); 
+        budgetLabel = new JLabel("Select your budget:");
+        budgetLabel.setBounds(100,430,300,100);
 
         createInputs();
         this.add(createFindGasButton());
@@ -43,7 +53,7 @@ public class MainPage extends JPanel{
         revalidate();
         repaint();
     }
-
+    // Creating the dropdown menus for gas type and budget
     void createInputs() {
         stationDropdown = new JComboBox<>(stationOptions);
         stationDropdown.setSelectedIndex(0);
@@ -58,11 +68,17 @@ public class MainPage extends JPanel{
         radiusDropdown.setBackground(new Color(255, 172, 28));
         radiusDropdown.setBounds(100, 480, 100, 50);
 
+        //Adding labels, dropdown menues to the page 
         this.add(stationDropdown);
         this.add(addressField);
         this.add(radiusDropdown);
+        this.add(maintitleLabel);
+        this.add(gasLabel);
+        this.add(locationLabel);
+        this.add(budgetLabel);
     }
-
+    // Creating button for the user to press after inputting their information
+    // Uses the information added to load the gas stations
     private JButton createFindGasButton() {
         JButton findGasButton = new JButton("Find Gas");
         findGasButton.addActionListener(e ->
@@ -81,6 +97,7 @@ public class MainPage extends JPanel{
         findGasButton.setBounds(600, 400, 200, 100);
         return findGasButton;
     }
+    //Checks the address entered to make sure the address exists 
     void checkAddress() throws IOException, InterruptedException{
         /*
         if(!backend.setUserAddress(addressField.getText())){
