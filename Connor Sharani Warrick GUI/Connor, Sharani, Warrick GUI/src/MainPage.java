@@ -42,7 +42,7 @@ public class MainPage extends JPanel{
         locationLabel = new JLabel("Please enter your address:");
         locationLabel.setBounds(100,365,200,50); 
         budgetLabel = new JLabel("Select your budget:");
-        budgetLabel.setBounds(100,450,300,100);
+        budgetLabel.setBounds(100,430,300,100);
 
         createInputs();
         this.add(createFindGasButton());
